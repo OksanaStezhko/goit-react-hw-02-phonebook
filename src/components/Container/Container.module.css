@@ -1,8 +1,8 @@
 .container {
   /* display: flex;
   justify-content: space-between; */
-  max-width: 600px;
-  min-height: 200px;
+  max-width: 1200px;
+  min-height: 100vh;
   margin-left: auto;
   margin-right: auto;
   padding: 30px;
