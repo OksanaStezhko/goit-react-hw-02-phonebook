@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import style from './Form.module.css';
 
 import shortid from 'shortid';
 
@@ -27,10 +28,11 @@ class Form extends Component {
   render() {
     const { name, number } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor={this.contactId}>
-          Name
+      <form className={style.form} onSubmit={this.handleSubmit}>
+        <label className={style.label} htmlFor={this.contactId}>
+          Name:
           <input
+            className={style.input}
             type="text"
             name="name"
             id={this.contactId}
@@ -41,20 +43,23 @@ class Form extends Component {
             required
           />
         </label>
-        <label htmlFor={this.numberId}>
-          Number
+        <label className={style.label} htmlFor={this.numberId}>
+          Number:
           <input
+            className={style.input}
             type="tel"
             name="number"
             id={this.numberId}
             value={number}
             onChange={this.handleChange}
-            // pattern="(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})"
-            // title="Номер телефона должен состоять из 11-12 цифр и может содержать цифры, пробелы, тире, пузатые скобки и может начинаться с +"
-            // required
+            pattern="(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})"
+            title="Номер телефона должен состоять из 11-12 цифр и может содержать цифры, пробелы, тире, пузатые скобки и может начинаться с +"
+            required
           />
         </label>
-        <button type="submit">Add contact</button>
+        <button className={style.button} type="submit">
+          Add contact
+        </button>
       </form>
     );
   }
