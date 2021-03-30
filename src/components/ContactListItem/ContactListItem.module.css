@@ -23,3 +23,10 @@
   font-size: 12px;
   font-weight: bold;
 }
+
+.button:hover,
+.button:focus {
+  background-color: rgba(148, 255, 212, 0.8);
+  border: 1px solid rgb(106, 153, 207);
+  outline: 1px solid rgb(106, 153, 207);
+}
