@@ -3,7 +3,16 @@ import style from './Form.module.css';
 
 import shortid from 'shortid';
 
-class Form extends Component {
+interface IState {
+  name: string;
+  number: string;
+}
+
+interface Props {
+  onSubmitForm: (data: IState) => void;
+}
+
+class Form extends Component<Props, IState> {
   state = { name: '', number: '' };
   contactId = shortid.generate();
   numberId = shortid.generate();
@@ -12,13 +21,13 @@ class Form extends Component {
     this.setState({ name: '', number: '' });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     this.props.onSubmitForm(this.state);
     this.resetForm();
   };
 
-  handleChange = event => {
+  handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = event.currentTarget;
     this.setState({
       [name]: value,

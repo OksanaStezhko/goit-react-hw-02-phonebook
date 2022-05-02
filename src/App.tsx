@@ -5,8 +5,9 @@ import Container from './components/Container';
 import Form from './components/Form';
 import ContactList from './components/ContactList';
 import Filter from './components/Filter';
+import { IState } from './components/ts';
 
-class App extends Component {
+class App extends Component<{}, IState> {
   state = {
     contacts: [
       { id: 'id-1', name: 'Rosie Simpson', number: '+380505955555' },
@@ -33,14 +34,14 @@ class App extends Component {
     }));
   };
 
-  deleteContact = idContact => {
+  deleteContact = (idContact: string) => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== idContact),
     }));
   };
 
-  changeFilter = event => {
-    this.setState({ filter: event.currentTarget.value });
+  changeFilter = (filter: string) => {
+    this.setState({ filter: filter });
   };
 
   getVisibleContacts = () => {

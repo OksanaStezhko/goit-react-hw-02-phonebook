@@ -1,15 +1,19 @@
 import React from 'react';
 import ContactListItem from '../ContactListItem';
 import style from './ContactList.module.css';
+import { TContact } from '../ts';
 
-const ContactList = ({ contactList, onDeleteContact }) => {
+interface Props {
+  contactList: TContact[];
+  onDeleteContact: (x: string) => void;
+}
+const ContactList = ({ contactList, onDeleteContact }: Props) => {
   return (
     <ul className={style.list}>
-      {contactList.map(({ id, ...dataContact }) => (
+      {contactList.map(elem => (
         <ContactListItem
-          key={id}
-          id={id}
-          listItem={Object.values(dataContact)}
+          key={elem.id}
+          item={elem}
           onDeleteContact={onDeleteContact}
         />
       ))}
