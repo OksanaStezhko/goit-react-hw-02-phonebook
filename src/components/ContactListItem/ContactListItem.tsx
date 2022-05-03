@@ -11,8 +11,6 @@ interface Props {
 const ContactListItem = ({ num, item, onDeleteContact }: Props) => {
   const { id, ...listarray } = item;
   const listItem = [num, ...Object.values(listarray)];
-  console.log(num);
-  console.log('array:', listItem);
 
   return (
     <li className={style.item}>
