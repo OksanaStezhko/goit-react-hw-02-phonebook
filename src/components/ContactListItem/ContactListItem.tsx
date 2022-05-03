@@ -4,12 +4,16 @@ import style from './ContactListItem.module.css';
 import { TContact } from '../ts';
 
 interface Props {
+  num: number;
   item: TContact;
   onDeleteContact: (x: string) => void;
 }
-const ContactListItem = ({ item, onDeleteContact }: Props) => {
-  const listItem = Object.values(item);
-  const id = item.id;
+const ContactListItem = ({ num, item, onDeleteContact }: Props) => {
+  const { id, ...listarray } = item;
+  const listItem = [num, ...Object.values(listarray)];
+  console.log(num);
+  console.log('array:', listItem);
+
   return (
     <li className={style.item}>
       {listItem.map(value => (

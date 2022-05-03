@@ -10,10 +10,11 @@ interface Props {
 const ContactList = ({ contactList, onDeleteContact }: Props) => {
   return (
     <ul className={style.list}>
-      {contactList.map(elem => (
+      {contactList.map((elem, idx) => (
         <ContactListItem
           key={elem.id}
           item={elem}
+          num={idx + 1}
           onDeleteContact={onDeleteContact}
         />
       ))}

@@ -7,6 +7,10 @@ import ContactList from './components/ContactList';
 import Filter from './components/Filter';
 import { IState } from './components/ts';
 
+interface IStateItem {
+  name: string;
+  number: string;
+}
 class App extends Component<{}, IState> {
   state = {
     contacts: [
@@ -18,7 +22,7 @@ class App extends Component<{}, IState> {
     filter: '',
   };
 
-  addContact = data => {
+  addContact = (data: IStateItem) => {
     if (this.state.contacts.find(contact => contact.name === data.name)) {
       alert(`${data.name} is already in contacts`);
       return;

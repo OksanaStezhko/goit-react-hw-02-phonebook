@@ -27,11 +27,18 @@ class Form extends Component<Props, IState> {
     this.resetForm();
   };
 
-  handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const { name, value } = event.currentTarget;
-    this.setState({
-      [name]: value,
-    });
+  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    if (name === 'name') {
+      this.setState({
+        name: value,
+      });
+    }
+    if (name === 'value') {
+      this.setState({
+        number: value,
+      });
+    }
   };
 
   render() {
